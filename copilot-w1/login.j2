@@ -1,0 +1,54 @@
+<!--
+    Create DOCTYPE HTML structure.
+    Import CSS from http://localhost:3000/static/style.css.
+    Create a header titled Login Page.
+    Create a body describing the page to the user.
+    Tell users they can create accounts to manage their profiles and animals.
+    Tell users they can login by entering their username and password.
+    Add line breaks between descriptions and forms.
+    Copyright: PawPair Team 2023.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="http://localhost:3000/static/style.css">
+</head>
+<body>
+    <h1>Login Page</h1>
+    <!--
+        Create a navigation bar routing: Home (/) and Animals (/animals).
+        Separate links with pipes.
+    -->
+    <div class="navbar">
+        <a href="/">Home</a>
+        |
+        <a href="/animals">Animals</a>
+    </div>
+    <p>
+        Welcome to the PawPair login page! Here you can create an account to manage your profile and animals, or login to an existing account.
+    </p>
+    <p>
+        To create an account, click the "Create Account" button below. To login to an existing account, enter your username and password below.
+    </p>
+    <br>
+    <form action="http://localhost:3000/create_account">
+        <input type="submit" value="Create Account">
+    </form>
+    <br>
+    <form action="http://localhost:3000/login" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="submit" value="Login">
+    </form>
+    <br>
+    <p>
+        &copy; PawPair Team 2023
+    </p>
+</body>
+</html>
