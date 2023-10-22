@@ -1,0 +1,12 @@
+2023_10_22 @ 08:38 AM
+
+URL: https://storage.googleapis.com/cs467_capstone/progressreport1/landing_page.html
+
+I focused on using Google Bard this week and didn't feel like there was a need for Copilot. I wanted to take a bottom-up approach, starting from scratch and asking Bard to add functionality to the page bit by bit.  
+
+Impressions
+- Bard feels like it holds your hand more than ChatGPT, which makes it a better tool for beginners. Instead of just giving you a solution and an overview, Bard gives a step-by-step breakdown of what it's doing, with an explanation for why it chose the solution that it did.
+- One neat feature is that with most responses, especially those containing code, you get 3 variations or drafts that you can jump between if you're not satisfied with the current answer. This is in contrast to most other chatbots that provide only one answer at a time and don't allow returning to a previous version if you choose to regenerate.
+- The tradeoff for all this detail is speed. Incremental development with Bard feels sluggish, especially compared to GPT. I even found a case that caused it to freeze completely - for whatever reason it couldn't process my request to add comments to an HTML file.
+- That said, it's still faster than I would've been had I been forced to google a solution, figure out how to adapt it, then test and fine tune it. This is especially true for aligning elements with CSS. It's so much less painful with Bard.
+- I also found myself trying more things out. At first, I caught myself avoiding some features (gradient background, dropdown menu, etc) because I was thinking of all the effort it would take to search and implement them. Then I realized there was no need since Bard would cut down on that research time. This freed me up to get more creative with the design.
