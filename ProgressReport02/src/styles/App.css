@@ -1,0 +1,255 @@
+/* Color Scheme */
+:root {
+  --primary_color:    #673AB7;
+  --secondary-color:  teal;
+  --gradient-offset:  #472E8B;
+
+  --header-bg:        white;
+  --main-text:        white;
+  --footer-text:      white;
+  --button:           teal;
+  --button-hover:     #00AACC;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  
+  text-align: center;
+
+  background-image: linear-gradient(to bottom, var(--primary_color), var(--gradient-offset));  
+}
+
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100px;
+  padding: 30px;
+
+  background-color: var(--header-bg);
+  color: var(--primary_color);
+  box-shadow: 0 2px 10px -1px rgba(0, 0, 0, 0.5);
+}
+
+.App-header img {
+  max-height: 100px;
+}
+
+.App-header nav {
+  float: right;
+}
+
+.App-header nav a {
+  margin: 0 10px;
+  font-size: 20px;
+  font-weight: 700;      
+  color: var(--primary_color);
+  text-decoration: none;
+}
+
+.App-main {
+  flex: 1;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-text);
+}
+
+.App-main .container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.App-main .landing-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.App-main .image-box img {
+  height: 400px;
+  display: block; /* treat img as block-level element, aids alignment */
+  margin-right: 10px;
+}
+
+.App-main .text-box {
+  width: 300px;
+  padding: 20px;
+  line-height: 1.5;
+  margin-top: 20px; /* add space on top of text-box */
+  margin: 0 auto;
+}
+
+.App-main .text-box h2 {
+  margin-top: 0px;
+}
+
+.App-main .text-box p:last-child {
+  margin-top: 30px; /* add space on top of call-to-action button */
+}
+
+/* Call-to-action button */
+.App-main .cta-button {
+  background-color: var(--button);
+  border: 2px solid var(--button);
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--main-text);
+  text-decoration: none;
+  margin: 0 auto; /* center button horizontally */
+}
+
+.App-main .cta-button:hover {
+  background-color: var(--button-hover);
+  border-color: var(--button-hover);
+}
+
+
+.App-main .account-form {
+  min-width: 300px;
+}
+
+.App-main .account-form input[name="first_name"] {
+  margin-right: 5px;
+}
+
+.App-main .account-form input {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+}  
+
+.App-main .account-form input {
+  margin: 5px 0;
+}
+
+.App-main .account-form input[type="email"],
+.App-main .account-form input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.App-main .account-form h2 {
+text-align: center;
+}
+
+.App-main .account-form input[type="submit"] {
+  width: 100%;
+}
+
+.App-main .account-form p {
+  text-align: center;
+}
+
+.App-main .account-form a {
+  color: teal;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* .App-main .login-content .image-box img {
+  height: 300px;
+  display: block;
+  margin-right: 10px;
+  z-index: -1;
+} */
+
+
+
+.App-footer {
+  height: 60px;
+  color: var(--footer-text);
+}
+
+.App-footer nav, .App-footer nav a {
+    padding: 5px;
+    text-decoration: none;
+    color: var(--footer-text);
+
+}
+
+
+
+
+
+
+/*
+
+
+.App .show-me {
+  color: teal;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
+
+  align-self: center;
+  vertical-align: middle;
+}
+
+.App .dropdown-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.App .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.App .dropbtn {
+  background-color: #fff;
+  color: #008080;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+.App .dropbtn img {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.App .dropbtn:hover, .App .dropbtn:focus {
+  background-color: #ccc;
+}
+
+.App .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.App .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.App .dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.App .dropdown:hover .dropdown-content {
+  display: block;
+}
+ */
