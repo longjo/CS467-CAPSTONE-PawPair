@@ -1,0 +1,14 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to PetAdoption</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Welcome to PetAdoption</h1>
+    <p>Your perfect pet is waiting for you.</p>
+    <a href="{{ url_for('login') }}">Log In</a> | <a href="{{ url_for('register') }}">Register</a>
+</body>
+</html>
