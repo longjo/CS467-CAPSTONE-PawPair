@@ -1,0 +1,308 @@
+body {
+    color: white;
+    font-family: sans-serif;
+  }
+
+
+/* Top Bar */
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+
+    background-color: white;
+    color: #673AB7;
+    font-family: sans-serif;
+    box-shadow: 0 2px 10px -1px rgba(0, 0, 0, 0.5); /* drop shadow effect */
+  }
+  
+  .top-bar .logo {
+    max-height: 100px;
+  }
+
+  /* Center Dropdown Menus */
+
+  .show-me {
+    color: teal;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 10px;
+
+    align-self: center;
+    vertical-align: middle;
+  }
+
+  .dropdown-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+  .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+  .dropbtn {
+      background-color: #fff;
+      color: #008080;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 16px;
+      border: none;
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+    }
+    
+    .dropbtn img {
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+    
+    .dropbtn:hover, .dropbtn:focus {
+      background-color: #ccc;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    
+  /* Account links */
+  /* Consolidating these two swaps link position */
+  .top-bar nav {
+      float: right;
+    }
+
+  .top-bar nav a {
+      margin: 0 10px;
+      font-size: 20px;
+      font-weight: 700;      
+      color: #673AB7;
+      text-decoration: none;
+    }
+      
+
+/* Main Body */
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    min-height: 200px;
+
+    /* creates a subtle background gradient */
+    background-image: linear-gradient(to bottom, #673AB7, #472E8B);
+  }
+    
+  .main-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+  .image-box img {
+      height: 350px;
+      display: block; /* treat img as block-level element, aids alignment */
+    }
+      
+  .text-box {
+      width: 300px;
+      padding: 20px;
+      line-height: 1.5;
+    }
+
+  .text-box p:last-child {
+      margin-top: 30px; /* add space on top of call-to-action button */
+    }
+
+  /* Call-to-action button */  
+  .cta-button {
+      background-color: teal;
+      border: 2px solid teal;
+      border-radius: 10px;
+      font-size: 16px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+    
+  .cta-button:hover {
+      background-color: #00AACC;
+      border-color: #00AACC;
+    }
+
+
+  /* Account creation page */
+
+  .account-creation-form {
+    min-width: 300px;
+  }
+
+  .account-creation-form input[name="first_name"] {
+    margin-right: 5px;
+  }
+
+  .account-creation-form input {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+  }  
+
+  .account-creation-form input {
+    margin: 5px 0;
+  }
+
+  .account-creation-form input[type="email"],
+  .account-creation-form input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .account-creation-form h2 {
+  text-align: center;
+  }
+
+  .account-creation-form input[type="submit"] {
+    width: 100%;
+  }
+
+  .account-creation-form p {
+    text-align: center;
+  }
+  
+  .account-creation-form a {
+    color: teal;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+
+  
+
+  /* Navigation Footer */
+  .container .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      text-align: center;
+    }
+
+  .container .footer nav {
+    margin-bottom: 5px;
+    }
+
+  .container .footer nav a {
+      text-align: center;
+      padding: 2px;
+      color: white;
+      text-decoration: none;
+    }
+
+
+
+    /* in progress */
+
+    .account-details table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .account-details table th, .account-details table td {
+      padding: 10px;
+    }
+    
+    .account-details table th {
+      width: 20%;
+      text-align: left;
+    }
+    
+    .account-details table td {
+      width: 80%;
+      text-align: right;
+    }
+
+    .account-details .delete-button {
+      margin-top: 100px;
+    }
+
+  /* Call-to-action button */  
+  .delete-button {
+    background-color: orangered;
+    border: 2px solid orangered;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+.delete-button:hover {
+    background-color: maroon;
+    border-color: maroon;
+  }
+
+
+
+      /* Call-to-action button */  
+  .small-button {
+    background-color: teal;
+    border: 2px solid teal;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 5px 5px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+.small-button:hover {
+    background-color: #00AACC;
+    border-color: #00AACC;
+  }

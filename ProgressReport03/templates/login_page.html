@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PawPair | Log In</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <img src="../static/images/logo.png" class="logo" alt="PawPair Logo">
+
+    <!-- Center Dropdown Menus -->
+    <div class="dropdown-wrapper">
+      <p class="show-me">Show me</p>
+
+      <!-- Dog Menu -->
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="../static/images/dog.png" alt="Dog icon">
+          Dogs
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Type 1</a>
+          <a href="#">Type 2</a>
+          <a href="#">Type 3</a>
+          <a href="#">Type 4</a>
+          <a href="#">Type 5</a>
+        </div>
+      </div>
+    
+      <!-- Cat Menu -->
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="../static/images/cat.png" alt="Cat icon">
+          Cats
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Type 1</a>
+          <a href="#">Type 2</a>
+          <a href="#">Type 3</a>
+          <a href="#">Type 4</a>
+          <a href="#">Type 5</a>
+        </div>
+      </div>
+
+      <!-- Other Menu -->
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="../static/images/cockatoo.png" alt="Other icon">
+          Other
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Type 1</a>
+          <a href="#">Type 2</a>
+          <a href="#">Type 3</a>
+          <a href="#">Type 4</a>
+          <a href="#">Type 5</a>
+        </div>
+      </div>
+    
+    </div>
+
+    <!-- Account Links -->
+    <nav>
+      <a href="/signup">Sign Up</a> |
+      <a href="/login"> Log In</a> |
+      <a href="/testing"> DB</a>
+    </nav>
+  
+  </div>
+
+
+  <!-- Main Body -->
+  <div class="container">
+    
+    <div class="main-content">
+      <div class="account-creation-form">
+        
+        {% if message %}
+          <h2>{{ message }}</h2>
+        
+        {% else %}
+          <h2>Welcome back!</h2>
+
+        {% endif %}
+            
+        <form action="/login" method="POST">          
+      
+          <input type="email" name="email" placeholder="Email" required>
+      
+          <br>
+      
+          <input type="password" name="password" placeholder="Password" required>
+      
+          <br>
+      
+          <input type="submit" class="cta-button" value="Log In">
+        </form>
+        <p>Don't have an account?  <a href="/signup">Sign Up</a></p>
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="footer">
+      <nav>
+        <a href="/">Home</a> |
+        <a href="#">About</a> |
+        <a href="#">Contact Us</a>
+      </nav>
+      &copy; 2023 AI Coder Team
+    </div>
+
+  </div>
+    
+</body>
+</html>

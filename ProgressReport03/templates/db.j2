@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Table</title>
+</head>
+<body>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in data %}
+      <tr>
+        <td>{{ user[0] }}</td>
+        <td>{{ user[1] }} {{ user[2] }}</td>
+        <td>{{ user[3] }}</td>
+        <td>{{ user[4] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<br />
+<button type="button" onclick="window.location.href = '/'">Home</button>
+
+</body>
+</html>

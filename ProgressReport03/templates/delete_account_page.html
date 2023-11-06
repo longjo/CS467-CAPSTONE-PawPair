@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PawPair | Delete Account?</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <img src="../static/images/logo.png" class="logo" alt="PawPair Logo">
+
+    <!-- Center Dropdown Menus -->
+    <div class="dropdown-wrapper">
+      <p class="show-me">Show me</p>
+
+      <!-- Dog Menu -->
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="../static/images/dog.png" alt="Dog icon">
+          Dogs
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Type 1</a>
+          <a href="#">Type 2</a>
+          <a href="#">Type 3</a>
+          <a href="#">Type 4</a>
+          <a href="#">Type 5</a>
+        </div>
+      </div>
+    
+      <!-- Cat Menu -->
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="../static/images/cat.png" alt="Cat icon">
+          Cats
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Type 1</a>
+          <a href="#">Type 2</a>
+          <a href="#">Type 3</a>
+          <a href="#">Type 4</a>
+          <a href="#">Type 5</a>
+        </div>
+      </div>
+
+      <!-- Other Menu -->
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="../static/images/cockatoo.png" alt="Other icon">
+          Other
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Type 1</a>
+          <a href="#">Type 2</a>
+          <a href="#">Type 3</a>
+          <a href="#">Type 4</a>
+          <a href="#">Type 5</a>
+        </div>
+      </div>
+    
+    </div>
+
+    <!-- Account Links -->
+    <nav>
+      {% if logged_in %}
+      <a href="/account">Account</a>
+      <a href="/logout">Logout</a>
+      {% else %}
+      <a href="/signup">Sign Up</a>
+      <a href="/login">Log in</a>
+      {% endif %}
+      <a href="/testing"> DB</a>
+    </nav>
+  
+  </div>
+
+
+  <!-- Main Body -->
+  <div class="container">
+    
+    <div class="main-content">
+      <div class="account-creation-form">
+            
+        <h2>Delete Account</h2>
+        <p>Are you sure? This can't be undone.</p>
+        <p>Type your password to confirm.</p>
+        <form action="/delete_account" method="POST">      
+          <input type="password" name="password" placeholder="Password (or '123' for testing)" required>
+          <input type="submit" class="cta-button" value="Comfirm Deletion">
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="footer">
+      <nav>
+        <a href="/">Home</a> |
+        <a href="#">About</a> |
+        <a href="#">Contact Us</a>
+      </nav>
+      &copy; 2023 AI Coder Team
+    </div>
+
+  </div>
+    
+</body>
+</html>
