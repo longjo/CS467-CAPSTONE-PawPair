@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Table</title>
+</head>
+<body>
+
+<div style="display:flex;">
+
+<!-- Users Table -->
+<table border="1" style="margin-right: 20px;">
+  <thead style="background-color: #008080; color: white;">
+    <tr>
+      <th>User ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #E0FFFF;">
+    {% for user in users %}
+      <tr>
+        <td>{{ user[0] }}</td>
+        <td>{{ user[1] }} {{ user[2] }}</td>
+        <td>{{ user[3] }}</td>
+        <td>{{ user[4] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- Shelters Table -->
+<table border="1" style="height: 0px; margin-right: 20px;">
+  <thead style="background-color: #673AB7; color: white;">
+    <tr>
+      <th>Shelter ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Zip</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #E1BEE7;">
+    {% for shelter in shelters %}
+      <tr>
+        <td>{{ shelter[0] }}</td>
+        <td>{{ shelter[1] }}</td>
+        <td>{{ shelter[2] }}</td>
+        <td>{{ shelter[3] }}</td>
+        <td>{{ shelter[4] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- Animals Table -->
+<table border="1" style="height: 0px;">
+  <thead style="background-color: #F4511E; color: white;">
+    <tr>
+      <th>Animal ID</th>
+      <th>Name</th>
+      <th>Species</th>
+      <th>Breed</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Image URL</th>
+      <th>Description</th>
+      <th>Shelter ID</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #FFD8B1;">
+    {% for animal in animals %}
+      <tr>
+        <td>{{ animal[0] }}</td>
+        <td>{{ animal[1][:30] }}</td>
+        <td>{{ animal[2][:30] }}</td>
+        <td>{{ animal[3][:30] }}</td>
+        <td>{{ animal[4] }}</td>
+        <td>{{ animal[5][:30] }}</td>
+        <td>{{ animal[6][:30] }}</td>
+        <td>{{ animal[7][:30] }}</td>
+        <td>{{ animal[8] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+<br />
+<button type="button" onclick="window.location.href = '/'">Home</button>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Edit Animal{% endblock %}
+
+{% block content %}
+
+      <div class="account-creation-form">
+        <h2>Edit Animal Details</h2>
+      
+        <form action="/edit_shelter_animal/{{ animal[0] }}" method="POST">
+
+          <input type="text" name="name" value="{{ animal[1] }}" placeholder="Name" required>
+          <br>
+
+          <div class="name-form">
+            <input type="text" name="species" value="{{ animal[2] }}" placeholder="Species (Dog, Cat, etc.)" required>
+            <input type="text" name="breed" value="{{ animal[3] }}" placeholder="Breed" required>
+          </div>
+
+          <div class="name-form">
+            <input type="number" name="age" value="{{ animal[4] }}" placeholder="Age" required>
+            <input type="text" name="gender" value="{{ animal[5] }}" placeholder="Gender" required>
+          </div>
+
+          <input type="text" name="image_url" value="{{ animal[6] }}" placeholder="Image URL (optional)">
+          <br>
+
+          <input type="text" name="description" value="{{ animal[7] }}" placeholder="Description" required>
+          <br>
+      
+          <input type="submit" class="cta-button" value="Update Animal">
+        </form>
+      </div>
+
+{% endblock %}

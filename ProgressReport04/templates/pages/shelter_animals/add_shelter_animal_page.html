@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Add Animal{% endblock %}
+
+{% block content %}
+
+      <div class="account-creation-form">
+        <h2>Add an Adoptable Animal</h2>
+      
+        <form action="/add_shelter_animal" method="POST">
+
+          <input type="text" name="name" placeholder="Name" required>
+          <br>
+
+          <div class="name-form">
+            <input type="text" name="species" placeholder="Species (Dog, Cat, etc.)" required>
+            <input type="text" name="breed" placeholder="Breed" required>
+          </div>
+
+          <div class="name-form">
+            <input type="number" name="age" placeholder="Age" required>
+            <input type="text" name="gender" placeholder="Gender" required>
+          </div>
+
+          <input type="text" name="image_url" placeholder="Image URL (optional)">
+          <br>
+
+          <input type="text" name="description" placeholder="Description" required>
+          <br>
+      
+          <input type="submit" class="cta-button" value="Add Animal">
+        </form>
+      </div>
+
+{% endblock %}

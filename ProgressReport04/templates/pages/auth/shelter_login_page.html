@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | User Login{% endblock %}
+
+{% block content %}
+
+      <div class="account-creation-form">
+        
+        <h2>Welcome back!</h2>
+
+        <p class="login_toggle">
+          <a href="/user_login">User</a> |
+          <b>Shelter</b>
+        </p>
+
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+
+        <form action="/shelter_login" method="POST">          
+      
+          <input type="email" name="email" placeholder="Shelter Email" required>
+      
+          <br>
+      
+          <input type="password" name="password" placeholder="Password" required>
+      
+          <br>
+      
+          <input type="submit" class="cta-button" value="Shelter Log In">
+        </form>
+        <p>Don't have a <b>shelter</b> account?  <a href="/shelter_signup">Sign Up</a></p>
+      </div>
+
+{% endblock %}

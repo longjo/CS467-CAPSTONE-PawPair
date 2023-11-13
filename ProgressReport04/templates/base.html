@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+
+  {% include 'components/topbar.html' %}
+  
+  <!-- Main Body -->
+  <div class="background-gradient">
+  <div class="container">    
+    <div class="main-content">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <!-- Navigation Footer -->
+    {% include 'components/footer.html' %} 
+
+  </div>
+  </div>
+    
+</body>
+</html>

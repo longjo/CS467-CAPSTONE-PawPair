@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Edit Name{% endblock %}
+
+{% block content %}
+
+      <div class="account-creation-form">
+                  
+        <form action="/edit_user_name" method="POST">
+
+          <div class="name-form">
+            <input type="text" name="firstname" value="{{ firstname }}" placeholder="First name" required>
+            <input type="text" name="lastname" value="{{ lastname }}" placeholder="Last name" required>
+          </div>
+          <input type="submit" class="cta-button" value="Update Name">
+        </form>
+      </div>
+
+{% endblock %}

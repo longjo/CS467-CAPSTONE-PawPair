@@ -1,0 +1,73 @@
+<!-- Top Bar -->
+  <div class="top-bar">
+    <a href="/"><img src="../static/images/logo.png" height="75" width="274" class="logo" alt="PawPair Logo"></a>
+
+    <!-- Center Dropdown Menus -->
+    <div class="dropdown-wrapper">
+      <p class="show-me">Show me</p>
+
+      <!-- Dog Menu -->
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="../static/images/dog.png" alt="Dog icon">
+          Dogs
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Type 1</a>
+          <a href="#">Type 2</a>
+          <a href="#">Type 3</a>
+          <a href="#">Type 4</a>
+          <a href="#">Type 5</a>
+        </div>
+      </div>
+    
+      <!-- Cat Menu -->
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="../static/images/cat.png" alt="Cat icon">
+          Cats
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Type 1</a>
+          <a href="#">Type 2</a>
+          <a href="#">Type 3</a>
+          <a href="#">Type 4</a>
+          <a href="#">Type 5</a>
+        </div>
+      </div>
+
+      <!-- Other Menu -->
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="../static/images/cockatoo.png" alt="Other icon">
+          Other
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Type 1</a>
+          <a href="#">Type 2</a>
+          <a href="#">Type 3</a>
+          <a href="#">Type 4</a>
+          <a href="#">Type 5</a>
+        </div>
+      </div>
+    
+    </div>
+
+    <!-- Account Links -->
+    <nav>
+      {% if logged_in %}
+        {% if as_user %}
+          <a href="/user_account">Account</a> |
+        {% else %}
+          <a href="/shelter_account">Shelter Account</a> |
+        {% endif %}
+          <a href="/logout"> Logout</a> |
+      
+      {% else %}
+          <a href="/user_signup">Sign Up</a> |
+          <a href="/user_login"> Log in</a> |
+      {% endif %}
+          <a href="/testing"> DB</a>
+    </nav>
+  
+  </div>
