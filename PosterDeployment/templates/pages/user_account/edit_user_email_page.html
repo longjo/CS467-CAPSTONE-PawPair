@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Edit Email{% endblock %}
+
+{% set container = "centered" %}
+
+{% block content %}
+
+      <div class="account-creation-form">
+                  
+        {% if error %}
+        <p>Email aleady in use. Please try again.</p>
+        {% endif %}
+
+        <form action="/edit_user_email" method="POST">      
+          <input type="email" name="email" value="{{ email }}" placeholder="Email" required>
+          <input type="submit" class="cta-button" value="Update Email">
+        </form>
+      </div>
+
+{% endblock %}

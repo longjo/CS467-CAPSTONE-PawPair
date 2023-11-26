@@ -1,0 +1,167 @@
+<!-- Top Bar -->
+  <div class="top-bar">
+    <a href="/"><img src="../static/images/logo.png" height="75" width="274" class="logo" alt="PawPair Logo"></a>
+
+    <!-- Center Dropdown Menus -->
+    <div class="dropdown-wrapper">
+
+      <!-- Dog Menu -->
+      <div class="dropdown">
+        <form method="POST" action="/browse_animals">
+          <button class="dropbtn" type="submit">
+            <img src="../static/images/dog_icon.png" alt="Dog icon">
+            Dogs
+          </button>
+          <input type="hidden" name="animal_type" value="1">
+        </form>
+
+        <div class="dropdown-content">
+
+          <form method="POST" action="/browse_animals">
+            <button type="submit">All Dogs</button>
+            <input type="hidden" name="animal_type" value="1">
+          </form>
+  
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_type" value="1">
+            <input type="hidden" name="age" value="Puppy">
+            <button type="submit">Puppy</button>
+          </form>
+
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_type" value="1">
+            <input type="hidden" name="age" value="Young">
+            <button type="submit">Young</button>
+          </form>
+
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_type" value="1">
+            <input type="hidden" name="age" value="Adult">
+            <button type="submit">Adult</button>
+          </form>
+
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_type" value="1">
+            <input type="hidden" name="age" value="Senior">
+            <button type="submit">Senior</button>
+          </form>
+
+        </div>
+      </div>
+    
+      <!-- Cat Menu -->
+      <div class="dropdown">
+        <form method="POST" action="/browse_animals">
+          <button class="dropbtn" type="submit">
+            <img src="../static/images/cat_icon.png" alt="Cat icon">
+            Cats
+          </button>
+          <input type="hidden" name="animal_type" value="2">
+        </form>
+        <div class="dropdown-content">
+
+          <form method="POST" action="/browse_animals">
+            <button type="submit">All Cats</button>
+            <input type="hidden" name="animal_type" value="2">
+          </form>
+  
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_type" value="2">
+            <input type="hidden" name="age" value="Kitten">
+            <button type="submit">Kitten</button>
+          </form>
+
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_type" value="2">
+            <input type="hidden" name="age" value="Young">
+            <button type="submit">Young</button>
+          </form>
+
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_type" value="2">
+            <input type="hidden" name="age" value="Adult">
+            <button type="submit">Adult</button>
+          </form>
+
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_type" value="2">
+            <input type="hidden" name="age" value="Senior">
+            <button type="submit">Senior</button>
+          </form>
+
+        </div>
+      </div>
+
+      <!-- Other Menu -->
+      <div class="dropdown">
+        <form method="POST" action="/browse_animals">
+          <button class="dropbtn" type="submit">
+            <img src="../static/images/bird_icon.png" alt="Other icon">
+            Other
+          </button>
+          <input type="hidden" name="animal_type" value="3">
+        </form>
+        <div class="dropdown-content">
+
+          <form method="POST" action="/browse_animals">
+            <button type="submit">All Other</button>
+            <input type="hidden" name="animal_type" value="3">
+          </form>
+  
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_breed" value="33">
+            <button type="submit">Bird</button>
+          </form>
+
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_breed" value="34">
+            <button type="submit">Fish/Aquatic</button>
+          </form>
+
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_breed" value="35">
+            <button type="submit">Hamster/Gerbil</button>
+          </form>
+
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_breed" value="36">
+            <button type="submit">Rabbit</button>
+          </form>
+
+          <form method="POST" action="/browse_animals">
+            <input type="hidden" name="animal_breed" value="37">
+            <button type="submit">Unknown</button>
+          </form>
+        
+        </div>
+      </div>
+    
+      <!-- All Menu -->
+      <div class="dropdown">
+        <form method="GET" action="/browse_animals">
+          <button class="dropbtn" type="submit">
+            <img src="../static/images/paw.png" alt="All icon">
+            All
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Account Links -->
+    <nav>
+      {% if logged_in %}
+        {% if as_user %}
+          <a href="/user_account">Account</a> |
+        {% else %}
+          <a href="/shelter_account">Shelter Account</a> |
+        {% endif %}
+          <a href="/logout"> Logout</a>
+      
+      {% else %}
+          <a href="/user_signup">Sign Up</a> |
+          <a href="/login"> Log in</a>
+      {% endif %}
+    </nav>
+  
+  </div>

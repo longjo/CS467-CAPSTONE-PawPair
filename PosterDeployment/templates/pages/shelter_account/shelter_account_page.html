@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Shelter Account{% endblock %}
+
+{% block content %}
+<div class="shelter-account-content">
+
+      <div class="account-details">
+        <h2 style="display: inline-block;">Shelter Account Details</h2>
+        <hr style="border-top: 1px white;">
+
+        <table>
+          <thead>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <td>{{ shelter_name }}</td>
+              <td><a href="/edit_shelter_name" class="small-button">Update</a></td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{ email }}</td>
+              <td><a href="/edit_shelter_email" class="small-button">Update</a></td>
+            </tr>
+            <tr>
+              <th>ZIP</th>
+              <td>{{ zip }}</td>
+              <td><a href="/edit_shelter_zip" class="small-button">Update</a></td>
+            </tr>
+            <tr>
+              <th>Password</th>
+              <td>****************</td>
+              <td><a href="/change_shelter_password" class="small-button">Change</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p><a href="/delete_shelter_account" class="delete-button">Delete Account</a></p>
+      </div>
+
+      <div style="width: 100px;"></div>
+
+      <div class="shelter-animals">
+        <div class="adoptable_animals_header">
+          <h2 style="display: inline-block;">Adoptable Animals</h2>
+          <a href="/add_shelter_animal" class="cta-button" style="display: inline-block;">Add an Animal</a>  
+        </div>
+        <hr style="border-top: 1px white;">
+
+        {% if animals|length > 0 %}
+
+        <table class="shelter-animals-table">
+
+          <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Species</th>
+                    <th>Breed</th>
+                    <!-- <th>Age</th> -->
+                    <!-- <th>Gender</th> -->
+                    <th>Reserved By</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+              {% for animal in animals %}
+              <tr>
+                <td>
+                  {% if animal[6] %}
+                    <img src="{{ animal[6] }}" width="75" height="75">
+                  {% else %}
+                    <img src="/static/images/default_animal_image.png" width="75" height="75">
+                  {% endif %}
+                </td>
+                <td>{{ animal[1] }}</td>
+                <td>{{ animal[2] }}</td>
+                <td>{{ animal[3] }}</td>
+                <!-- <td>{{ animal[4] }}</td> -->
+                <!-- <td>{{ animal[5] }}</td> -->
+                <td>
+                  {% if animal[7] %}
+                    <a href="mailto:{{ animal[7] }}" class="small-button">{{ animal[7] }}</a>
+                  {% else %}
+                    -
+                  {% endif %}
+                </td>
+                <td>{{ animal[8] }}</td>
+                <td>
+                  <a href="/edit_shelter_animal/{{ animal[0] }}" class="small-button">Update</a> 
+                  <a href="/delete_shelter_animal/{{ animal[0] }}" class="delete-button">Delete</a>
+                </td>
+              </tr>
+            {% endfor %}
+                          
+          </tbody>
+        </table>
+
+        {% else %}
+        <p>Add an animal to your shelter to get started!</p>
+        {% endif %}
+
+
+    </div>
+</div>
+{% endblock %}

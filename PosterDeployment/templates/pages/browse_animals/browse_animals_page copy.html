@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Browse Animals{% endblock %}
+
+{% block content %}
+
+<div class="filter-form">
+  <h2>Filter by</h2>
+
+  <form action="/browse_animals" method="POST">
+
+    Animal Type
+    <br>
+    <select class="dropdown-filter" name="animal_type"> 
+      <option value="" selected>Any</option>
+      {% for type in animal_types %}
+      <option value="{{ type[0] }}">{{ type[1] }}</option>
+      {% endfor %}
+    </select>
+    <br>
+    
+    Breed
+    <br>
+    <select class="dropdown-filter" name="animal_breed">
+      <option value="" selected>Any</option>
+    </select>
+    <br>
+
+    Age
+    <br>
+    <select class="dropdown-filter" name="age"> 
+      <option value="" selected>Any</option>
+      <option value="Newborn">Newborn</option>
+      <option value="Young">Young</option>
+      <option value="Adult">Adult</option>
+      <option value="Senior">Senior</option>
+    </select>
+    <br>
+
+    Gender
+    <br>
+    <select class="dropdown-filter" name="gender">
+      <option value="" selected>Any</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Unknown">Unknown</option>
+    </select>
+    <br>
+
+    <p>Disposition:</p>
+    <div class="dispositions-filter">
+      {% for disposition in dispositions %}
+        <input type="checkbox" name="animal_dispositions" value="{{ disposition[0] }}">
+        <label>{{ disposition[1] }}</label>
+        <br>
+      {% endfor %}
+      <br>
+    </div>
+    
+    <input type="submit" class="small-button" value="Apply Filters">
+    <a href="/browse_animals" class="delete-button">Clear Filters</a>
+    
+  </form>
+
+
+</div>
+
+<div class="shelter-animals-browse">
+  <table>
+    <thead>
+      {% if animals|length > 0 %}
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Species</th>
+          <th>Breed</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Actions</th>
+        </tr>
+      {% else %}
+        <tr>
+          <th colspan="7">No matches found.</th>
+        </tr>
+      {% endif %}
+    </thead>
+    <tbody>
+      {% for animal in animals %}
+        <tr>
+          <td>
+            {% if animal[6] %}
+              <img src="{{ animal[6] }}" width="300" height="300">
+            {% else %}
+              <img src="/static/images/default_animal_image.png" width="300" height="300">
+            {% endif %}
+          </td>
+          <td>{{ animal[1] }}</td>
+          <td>{{ animal[2] }}</td>
+          <td>{{ animal[3] }}</td>
+          <td>{{ animal[4] }}</td>
+          <td>{{ animal[5] }}</td>
+          <td>
+            <a href="/animal_details/{{ animal[0] }}" class="small-button">View</a> 
+            <a href="#" class="small-button">Favorite</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Reloads breed and age options based on type selection -->
+<script>
+  const animal_type_select = document.querySelector('select[name="animal_type"]');
+  const breed_select = document.querySelector('select[name="animal_breed"]');
+  const age_select = document.querySelector('select[name="age"]');
+
+  // Listen for user's animal type selection
+  animal_type_select.addEventListener('change', (event) => {
+      const selected_type = event.target.value;
+
+      // Clear the breed and age options
+      breed_select.innerHTML = '<option value="" selected>Any</option>';
+      age_select.innerHTML = '<option value="" selected>Any</option>';
+
+      // Filter the animal breeds based on the selected animal type
+      const animal_breeds = JSON.parse('{{ animal_breeds | tojson | safe }}');
+      const filtered_breeds = animal_breeds.filter(breed => breed[2].toString() === selected_type);
+
+      // Add the filtered breeds to the breed select
+      filtered_breeds.forEach(breed => {
+          const option = document.createElement('option');
+          option.value = breed[0];
+          option.text = breed[1];
+          breed_select.add(option);
+      });
+
+      // Add the type-specific age to the age select
+      function add_age_option(age) {
+        const option = document.createElement('option');
+        option.value = age;
+        option.text = age;
+        age_select.add(option)
+      }
+      if (selected_type === '1') {
+        add_age_option("Puppy");
+      } else if (selected_type === '2') {
+        add_age_option("Kitten");
+      } else {
+        add_age_option("Newborn");
+      }
+      add_age_option("Young");
+      add_age_option("Adult");
+      add_age_option("Senior");                
+  });
+</script>
+
+{% endblock %}

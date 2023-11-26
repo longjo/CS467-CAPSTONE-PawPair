@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Edit Location{% endblock %}
+
+{% set container = "centered" %}
+
+{% block content %}
+
+      <div class="account-creation-form">
+                  
+        <form action="/edit_shelter_zip" method="POST">
+          <input type="text" name="zip" value="{{ zip }}" placeholder="ZIP Code" pattern="[0-9]{5}" required>
+          <input type="submit" class="cta-button" value="Update ZIP Code">
+        </form>
+      </div>
+
+{% endblock %}

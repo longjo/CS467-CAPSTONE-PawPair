@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | My Account{% endblock %}
+
+{% block content %}
+
+      <div class="user-account-content">
+        <div class="account-details">
+          <h2 style="display: inline-block;">Account Details</h2>
+          <hr style="border-top: 1px white;">
+
+          <table>
+            <thead>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <td>{{ user_name }}</td>
+                <td><a href="/edit_user_name" class="small-button">Update</a></td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>{{ email }}</td>
+                <td><a href="/edit_user_email" class="small-button">Update</a></td>
+              </tr>
+              <tr>
+                <th>Password</th>
+                <td>****************</td>
+                <td><a href="/change_user_password" class="small-button">Change</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <p><a href="/delete_user_account" class="delete-button">Delete Account</a></p>         
+        </div>
+
+        <div style="width: 100px;"></div>
+
+        <div class="user-animals">
+          <div class="adoptable_animals_header">
+            <h2 style="display: inline-block;">Pending Adoptions</h2>
+          </div>
+          <hr style="border-top: 1px white;">
+
+          <div class="user-animals-content">
+          {% for animal in animals %}
+          <a href="/animal_details/{{ animal[0] }}">
+          <div class="browse-card">
+            {% if animal[6] %}
+            <img src="{{ animal[6] }}" width="200" height="200">
+            {% else %}
+            <img src="/static/images/default_animal_image.png" width="200" height="200">
+            {% endif %}
+            <p class="browse-card-name">{{ animal[1] }}</p>
+            <p class="browse-card-type"><b>{{ animal[2] }}:</b> {{ animal[3] }}</p>
+            <p class="browse-card-age">{{ animal[5] }} {{ animal[4] }}</p>    
+          </div>
+          </a>
+          {% endfor %}
+        
+          {% if animals|length == 0 %}
+          <div class="user-animals-empty">
+            <p>Browse animals to meet your <i>purrfect</i> match.</p>
+            <a href="/browse_animals" class="cta-button">Show me!</a>
+          </div>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

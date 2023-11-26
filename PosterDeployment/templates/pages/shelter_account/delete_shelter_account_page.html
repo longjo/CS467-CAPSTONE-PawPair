@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Delete Account?{% endblock %}
+
+{% set container = "centered" %}
+
+{% block content %}
+
+      <div class="account-creation-form">
+                  
+        <h2>Delete Shelter Account?</h2>
+        <p>Are you sure? This can't be undone.
+          <br />
+          Animals associated with your account will also be deleted.
+        </p>
+        <p>Type your password to confirm.</p>
+        <form action="/delete_shelter_account" method="POST">      
+          <input type="password" name="password" placeholder="Password (or '123' for testing)" required>
+          <input type="submit" class="cta-button" value="Comfirm Deletion">
+        </form>
+      </div>
+
+{% endblock %}
