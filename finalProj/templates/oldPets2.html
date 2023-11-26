@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Available Pets{% endblock %}
+
+{% block content %}
+    <h1>Available Pets</h1>
+    <div class="pets-grid">
+        {% for pet in pets %}
+            <div class="pet-card">
+                <h2>{{ pet.name }}</h2>
+                <img src="{{ url_for('static', filename=pet.picture_url) }}" alt="{{ pet.name }}" class="pet-image">
+                <p><strong>Species:</strong> {{ pet.species }}</p>
+                <p><strong>Breed:</strong> {{ pet.breed }}</p>
+                <p><strong>Age:</strong> {{ pet.age }}</p>
+                <p>{{ pet.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {% if prev_url %}
+            <a href="{{ prev_url }}">Back</a>
+        {% endif %}
+        {% if next_url %}
+            <a href="{{ next_url }}">Next</a>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Add a New Pet{% endblock %}
+
+{% block content %}
+    <h1>Add a New Pet</h1>
+    <form method="post" enctype="multipart/form-data">
+        Name: <input type="text" name="name" required><br>
+        Type: <select name="type">
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="other">Other</option>
+              </select><br>
+        Breed: <select name="breed">
+                  <!-- Add common breeds here, plus an 'Other' option -->
+                  <option value="other">Other</option>
+               </select><br>
+        Age: <input type="number" name="age"><br>
+        Description: <textarea name="description"></textarea><br>
+        Picture: <input type="file" name="picture"><br>
+        Disposition: <input type="text" name="disposition"><br>
+        Availability: <select name="availability">
+                          <option value="Not Available">Not Available</option>
+                          <option value="Available">Available</option>
+                          <option value="Pending">Pending</option>
+                          <option value="Adopted">Adopted</option>
+                      </select><br>
+        <input type="submit" value="Add Pet">
+    </form>
+{% endblock %}

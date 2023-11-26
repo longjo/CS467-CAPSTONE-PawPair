@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Available Pets{% endblock %}
+
+{% block content %}
+    <h1>Available Pets</h1>
+    <div class="pets-grid">
+        {% for pet in pets %}
+            <div class="pet-card">
+                <h2>{{ pet.name }}</h2>
+                <img src="{{ url_for('static', filename=pet.picture_url) }}" alt="{{ pet.name }}" class="pet-image">
+                <p><strong>Species:</strong> {{ pet.species }}</p>
+                <p><strong>Breed:</strong> {{ pet.breed }}</p>
+                <p><strong>Age:</strong> {{ pet.age }}</p>
+                <p>{{ pet.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+
+<!-- {% extends "base.html" %}
+
+{% block title %}Available Pets{% endblock %}
+
+{% block content %}
+    <h1>Available Pets</h1>
+    <ul>
+        {% for pet in pets %}
+            <li>
+                <h2>{{ pet.name }}</h2>
+                <p><strong>Species:</strong> {{ pet.species }}</p>
+                <p><strong>Breed:</strong> {{ pet.breed }}</p>
+                <p><strong>Age:</strong> {{ pet.age }}</p>
+                <p><strong>Description:</strong> {{ pet.description }}</p>
+                {% if pet.picture_url %}
+                    <img src="{{ url_for('static', filename=pet.picture_url) }}" alt="{{ pet.name }}">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %} -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Available Pets</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Available Pets</h1>
+    <ul>
+        {% for pet in pets %}
+            <li>
+                <h2>{{ pet.name }}</h2>
+                <p><strong>Species:</strong> {{ pet.species }}</p>
+                <p><strong>Breed:</strong> {{ pet.breed }}</p>
+                <p><strong>Age:</strong> {{ pet.age }}</p>
+                <p><strong>Description:</strong> {{ pet.description }}</p>
+                {% if pet.picture_url %}
+                    <img src="{{ url_for('static', filename=pet.picture_url) }}" alt="{{ pet.name }}">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html> -->

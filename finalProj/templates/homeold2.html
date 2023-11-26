@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pet Adoption Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add any additional CSS for slideshow here -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Pet</span> Adoption Service</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('show_pets') }}">View Pets</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Welcome to PawPair Adoption Service</h2>
+        <p>Discover your new best friend with us. At PawPair, we connect loving pets with caring homes. Browse our diverse range of pets, from playful puppies to serene senior cats, and find a companion who matches your lifestyle.</p>
+
+        <!-- Slideshow container -->
+        <div class="mySlides fade">
+            <img src="{{ url_for('static', filename='images/image1.png') }}" style="width:100%">
+            <div class="text">A Joyful Couple with Their New Puppy</div>
+        </div>
+        
+        <div class="mySlides fade">
+            <img src="{{ url_for('static', filename='images/image2.png') }}" style="width:100%">
+            <div class="text">A Happy Couple Adopting a Cat for the First Time</div>
+        </div>
+
+            <!-- ... more slides ... -->
+
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <!-- ... more dots ... -->
+            </div>
+        </div>
+
+        <p>Whether you're looking for an energetic companion for your outdoor adventures or a calm buddy for cozy nights, we have the perfect pet for you. Join our community of happy adopters and start the journey to find your lifelong furry friend today.</p>
+    </div>
+
+    <!-- Add the JavaScript for the slideshow here -->
+    <script>
+        var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+        </script>
+        
+</body>
+</html>

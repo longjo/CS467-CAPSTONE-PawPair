@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>Welcome to PawPair Adoption Service</h2>
+        <p>Discover your new best friend with us. At PawPair, we connect loving pets with caring homes. Browse our diverse range of pets, from playful puppies to serene senior cats, and find a companion who matches your lifestyle.</p>
+
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='images/image1.png') }}" alt="Image 1" style="max-width:100%; height:auto;">
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='images/image2.png') }}" alt="Image 2" style="max-width:100%; height:auto;">
+            </div>
+
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <!-- ... more dots ... -->
+            </div>
+        </div>
+
+        <p>Whether you're looking for an energetic companion for your outdoor adventures or a calm buddy for cozy nights, we have the perfect pet for you. Join our community of happy adopters and start the journey to find your lifelong furry friend today.</p>
+    </div>
+
+    <!-- JavaScript for the slideshow -->
+    <script>
+        var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+    </script>
+{% endblock %}

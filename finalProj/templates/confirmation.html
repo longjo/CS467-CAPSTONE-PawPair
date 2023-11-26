@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Adoption Confirmation{% endblock %}
+
+{% block content %}
+    <h1>Congratulations on Your Adoption!</h1>
+    <p>Your adoption confirmation number is: <strong>{{ confirmation_number }}</strong></p>
+    <p>Please present this QR code when you come to pick up your pet:</p>
+    <div>
+        <img src="{{ url_for('static', filename=qr_code_file) }}" alt="QR Code">
+    </div>
+{% endblock %}

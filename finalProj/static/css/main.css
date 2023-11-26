@@ -1,0 +1,180 @@
+/* Existing styles... */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #bbb 1px solid;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+
+    /* 11.24---Specify a fixed height for the header */
+    height: 70px; /* Example height, adjust as necessary */
+    overflow: hidden; 
+    /* Ensures content doesn't expand the header */
+
+}
+
+header ul {
+    padding: 0;
+    list-style: none;
+}
+
+header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header #branding {
+    float: left;
+}
+
+header #branding h1 {
+    margin: 0;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header .highlight, header .current a {
+    color: #e8491d;
+    font-weight: bold;
+}
+
+header a:hover {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.pets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+
+.pet-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+.pet-card h2 {
+    margin-top: 0;
+}
+
+.pet-image {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire image is visible */
+    max-height: 200px; /* Maximum height for images in the grid */
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+}
+
+/* New Styles for Slideshow */
+.slideshow-container {
+    max-width: 800px;
+    position: relative;
+    margin: 20px auto;
+}
+
+.mySlides {
+    display: none;
+    text-align: center;
+}
+
+.mySlides img {
+    max-width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+}
+
+.text {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.dot-container {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.profile-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 300px; /* Larger height for individual profile */
+}
+
+
+
+
+
+#user-info {
+    float: right; /* Aligns to the right within the container */
+    margin-left: 20px; /* Space between user info and other content */
+}
+
+.user-name {
+    font-size: 0.8em; /* Smaller font size */
+    color: yellow; /* Yellow font color */
+    line-height: 70px; /* Align vertically within the header */
+    vertical-align: middle; /* Centers text vertically */
+}

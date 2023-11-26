@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Admin Dashboard</h1>
+    <ul>
+        <li><a href="{{ url_for('add_pet') }}">Add Pet</a></li>
+        <li><a href="{{ url_for('show_users') }}">User Management</a></li>
+        <!-- Add more admin links as needed -->
+    </ul>
+</div>
+{% endblock %}

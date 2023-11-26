@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Add a New Pet{% endblock %}
+
+{% block content %}
+    <h1>Add a New Pet</h1>
+    <form method="post" enctype="multipart/form-data">
+        Name: <input type="text" name="name" required><br>
+        <!-- Species: <input type="text" name="species" required><br>
+        Breed: <input type="text" name="breed"><br>-->
+        Age: <input type="number" name="age"><br> 
+
+        Species: 
+<select name="species" required>
+    <option value="Dog">Dog</option>
+    <option value="Cat">Cat</option>
+    <option value="Other">Other</option>
+</select><br>
+
+Breed: 
+<select name="breed" required>
+    <optgroup label="Dog Breeds">
+        <option value="Dog-Labrador">Dog-Labrador</option>
+        <option value="Dog-German Shepherd">Dog-German Shepherd</option>
+        <option value="Dog-Golden Retriever">Dog-Golden Retriever</option>
+        <option value="Dog-French Bulldog">Dog-French Bulldog</option>
+        <option value="Dog-Bulldog">Dog-Bulldog</option>
+    </optgroup>
+    <optgroup label="Cat Breeds">
+        <option value="Cat-Persian">Cat-Persian</option>
+        <option value="Cat-Maine Coon">Cat-Maine Coon</option>
+        <option value="Cat-Ragdoll">Cat-Ragdoll</option>
+        <option value="Cat-Siamese">Cat-Siamese</option>
+        <option value="Cat-Bengal">Cat-Bengal</option>
+    </optgroup>
+    <option value="Other">Other</option>
+</select><br>   
+
+
+
+
+
+        Description: <textarea name="description"></textarea><br>
+        Picture: <input type="file" name="picture"><br>
+
+
+        <!-- 11.20.23 additions-beg -->
+        Disposition:
+<div>
+    <input type="checkbox" id="good_with_animals" name="disposition" value="Good with other animals">
+    <label for="good_with_animals">Good with other animals</label>
+</div>
+<div>
+    <input type="checkbox" id="good_with_children" name="disposition" value="Good with children">
+    <label for="good_with_children">Good with children</label>
+</div>
+<div>
+    <input type="checkbox" id="leashed" name="disposition" value="Animal must be leashed at all times">
+    <label for="leashed">Animal must be leashed at all times</label>
+</div>
+
+
+
+
+
+
+
+
+Availability: 
+<select name="availability" required>
+    <option value="Not Available">Not Available</option>
+    <option value="Available">Available</option>
+    <option value="Pending">Pending</option>
+    <option value="Adopted">Adopted</option>
+</select><br>
+                      </select><br>
+        <!-- 11.20.23 additions-end -->
+        
+
+        <input type="submit" value="Add Pet">
+    </form>
+{% endblock %}
+
+<!--  
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Add a New Pet</title>
+    
+</head>
+<body>
+    <h1>Add a New Pet</h1>
+    <form method="post" enctype="multipart/form-data">
+        Name: <input type="text" name="name" required><br>
+        Species: <input type="text" name="species" required><br>
+        Breed: <input type="text" name="breed"><br>
+        Age: <input type="number" name="age"><br>
+        Description: <textarea name="description"></textarea><br>
+        Picture: <input type="file" name="picture"><br>
+        <input type="submit" value="Add Pet">
+    </form>
+</body>
+</html>
+-->

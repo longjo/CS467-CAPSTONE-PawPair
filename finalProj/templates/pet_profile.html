@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ pet.name }} - Pet Profile{% endblock %}
+
+{% block content %}
+    <h1>{{ pet.name }}</h1>
+    <img src="{{ url_for('static', filename=pet.picture_url) }}" alt="{{ pet.name }}" class="profile-image">
+    <p><strong>Species:</strong> {{ pet.species }}</p>
+    <p><strong>Breed:</strong> {{ pet.breed }}</p>
+    <p><strong>Age:</strong> {{ pet.age }}</p>
+    <p><strong>Description:</strong> {{ pet.description }}</p>
+    <p><strong>Disposition:</strong> {{ pet.disposition }}</p>
+    <p><strong>Availability:</strong> {{ pet.availability }}</p>
+    <p><strong>News Item:</strong> {{ pet.news_item }}</p>
+
+
+    <!-- 11-24-23:  added -->
+    {% if pet.availability.lower() == 'available' %}
+    <form action="{{ url_for('adopt_pet', pet_id=pet.id) }}" method="post">
+        <button type="submit">Adopt</button>
+    </form>
+    {% endif %}
+    <!-- 11.24-23:end addition -->
+
+
+
+{% endblock %}

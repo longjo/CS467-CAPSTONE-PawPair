@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Registered Users{% endblock %}
+
+{% block content %}
+    <h1>Registered Users</h1>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th>Admin Status</th> <!-- New column for admin status -->
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.contact_number }}</td>
+                <td>{{ 'Yes' if user.is_admin else 'No' }}</td> <!-- Displaying admin status -->
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

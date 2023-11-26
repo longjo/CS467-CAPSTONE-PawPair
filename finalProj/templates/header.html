@@ -1,0 +1,19 @@
+<!-- header.html -->
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1><span class="highlight">Pet</span> Adoption Service</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('show_pets') }}">View Pets</a></li>
+                <li class="admin-link"><a href="{{ url_for('add_pet') }}">Add Pet</a></li>
+                <li class="admin-link"><a href="{{ url_for('search') }}">Search</a></li>
+                <li class="admin-link"><a href="{{ url_for('users') }}">Users</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

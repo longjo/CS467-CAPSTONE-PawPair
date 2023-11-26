@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Search for Pets</h2>
+<form method="POST" action="{{ url_for('search') }}">
+    <!-- Species: <input type="text" name="species"><br>
+    Breed: <input type="text" name="breed"><br> -->
+
+
+    <label for="species">Species:</label>
+    <select name="species">
+        <option value="">All</option>
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+        <!-- Add other species as needed -->
+    </select><br>
+
+    <!-- Dropdown for Breed -->
+    <label for="breed">Breed:</label>
+    <select name="breed">
+        <option value="">All</option>
+        <!-- Add options for dog and cat breeds -->
+        {% for breed in dog_breeds %}
+        <option value="{{ breed }}">Dog - {{ breed }}</option>
+        {% endfor %}
+        {% for breed in cat_breeds %}
+        <option value="{{ breed }}">Cat - {{ breed }}</option>
+        {% endfor %}
+    </select><br>
+
+
+
+
+
+
+
+    Disposition: 
+    <input type="checkbox" name="disposition" value="Good with other animals"> Good with other animals
+    <input type="checkbox" name="disposition" value="Good with children"> Good with children
+    <input type="checkbox" name="disposition" value="Animal must be leashed at all times"> Animal must be leashed at all times<br>
+    <input type="submit" value="Search">
+</form>
+{% endblock %}

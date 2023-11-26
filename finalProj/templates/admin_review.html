@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Pending Adoption Requests</h1>
+    <ul>
+        {% for pet in pending_pets %}
+            <li>
+                {{ pet.name }} - 
+                <a href="{{ url_for('approve_adoption', pet_id=pet.id) }}">Approve</a> | 
+                <a href="{{ url_for('deny_adoption', pet_id=pet.id) }}">Deny</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
