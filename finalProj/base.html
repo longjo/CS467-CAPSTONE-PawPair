@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Pet Adoption Service{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- Other head elements -->
+</head>
+<body>
+
+  
+
+
+
+
+    <header>
+        <div class="container">
+
+            <!-- User Information -->
+            <div id="user-info">
+                {% if session['username'] %}
+                    <span class="user-name">Logged in as: {{ session['username'] }}</span>
+                {% else %}
+                    <span class="user-name">Not logged in</span>
+                {% endif %}
+            </div>
+
+
+
+
+
+
+            <div id="branding">
+                <h1><span class="highlight">Pet</span> Adoption Service</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('show_pets') }}">View Pets</a></li>
+                    <li><a href="{{ url_for('search') }}">Search</a></li>
+                    {% if session.username %}
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% endif %}
+                    <li class="admin-link"><a href="{{ url_for('admin') }}" style="color: yellow;">Admin</a></li>
+                </ul>
+            </nav>
+
+
+            
+
+
+
+
+        </div>
+    </header>
+
+    <div class="container">
+        {% block content %}
+        <!-- Content will go here -->
+        {% endblock %}
+    </div>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+</body>
+</html>
