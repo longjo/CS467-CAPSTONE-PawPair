@@ -1,0 +1,58 @@
+<!--
+    Create DOCTYPE HTML structure.
+    Import CSS from static/style.css.
+    Create a header titled PawPair.
+    Create a body describing PawPair.
+    PawPair is a dating app matching humans and animals.
+    Users will be able to search for and claim animals based on their preferences.
+    Copyright: PawPair Team 2023.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PawPair</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <!--
+        Create a navigation bar routing: ANIMALS (/animals) and LOGOUT (/logout).
+        Separate links with pipes.
+    -->
+    <nav>
+        <a href="/animals">ANIMALS</a> | <a href="/logout">LOGOUT</a>
+    </nav>
+    <!-- Insert the PawPair welcome image: static/welcome.png inside the header. -->
+    <header>
+        <img src="static/welcome.png" alt="Welcome to PawPair">
+    </header>
+    <main>
+        <h2>About PawPair</h2>
+        <p>PawPair is a dating app matching humans and animals. Users will be able to search for and claim animals based on their preferences.</p>
+    </main>
+    <!--
+        Link to some news articles about animals:
+        https://www.bbc.com/news/articles/c0w2rqpq3k0o
+        https://www.bbc.com/news/uk-england-devon-67439005
+        https://www.bbc.com/news/articles/c9w3gjxe2l4o
+    -->
+    <section>
+        <h2>News</h2>
+        <a href="https://www.bbc.com/news/articles/c0w2rqpq3k0o">BBC: 'I'm a dog trainer who makes six figures'</a><br>
+        <a href="https://www.bbc.com/news/uk-england-devon-67439005">BBC: Devon dog's 'miracle' survival after 40ft cliff fall</a><br>
+        <a href="https://www.bbc.com/news/articles/c9w3gjxe2l4o">BBC: The dogs that can sniff out Covid-19</a>
+    </section>
+    <!--
+        Create a related websites section with links to the Humane Society and National Geographic.
+        Put each link on a separate line.
+    -->
+    <aside>
+        <h2>Related Websites</h2>
+        <a href="https://www.humanesociety.org/">Humane Society</a><br>
+        <a href="https://www.nationalgeographic.com/animals/">National Geographic</a>
+    </aside>
+    <footer>
+        <p>&copy; PawPair Team 2023</p>
+    </footer>
+</body>
+</html>

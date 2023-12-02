@@ -1,0 +1,124 @@
+<!--
+    Create DOCTYPE HTML structure.
+    Import CSS from static/style.css.
+    Create a header titled MY PROFILE.
+    Add line breaks between descriptions.
+    Copyright: PawPair Team 2023.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MY PROFILE</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <!--
+        Create a navigation bar routing: HOME (/), ANIMALS (/animals), and LOGOUT (/logout).
+        Separate links with pipes.
+    -->
+    <nav>
+        <a href="/">HOME</a> |
+        <a href="/animals">ANIMALS</a> |
+        <a href="/logout">LOGOUT</a>
+    </nav>
+    <h1>MY PROFILE</h1>
+    <!--
+        Jinja template iterating over user "data" from app.py.
+        Create a centered table with bolded keys.
+        Username: "id" from "data".
+        Favorite Animal: "fav" from "data".
+    -->
+    <table align="center">
+        <tr>
+            <th>Username</th>
+            <th>Favorite Animal</th>
+        </tr>
+        {% for user in data %}
+        <tr>
+            <td>{{ user["id"] }}</td>
+            <td>{{ user["fav"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!-- Create header titled PENDING. -->
+    <h1>PENDING</h1>
+    <!--
+        Create centered table with 80% width.
+        Table has 2 columns and 1 row for each "data2" from app.py.
+        Jinja template.
+        Iterate over "data2" to populate table.
+        Column 1: "image" sourced from "image", max height 300px.
+        Column 2: "animal", "breed", "disposition", "create_date", and "availability".
+        Bold and underline each key. Line break after each key.
+        Disposition: Iterate over "disposition". Line break between disposition.
+    -->
+    <table align="center" width="80%">
+        {% for animal in data2 %}
+        <tr>
+            <td>
+                <img src="{{ animal['image'] }}" alt="image" height="300px">
+            </td>
+            <td>
+                <b><u>Animal</u></b><br>
+                {{ animal['animal'] }}<br><br>
+                <b><u>Breed</u></b><br>
+                {{ animal['breed'] }}<br><br>
+                <b><u>Disposition</u></b><br>
+                {% for disposition in animal['disposition'] %}
+                {{ disposition }}<br>
+                {% endfor %}
+                <br>
+                <!-- Create a button to relinquish animal. -->
+                <form action="/relinquish" method="post">
+                    <!-- Hidden input to pass animal_id. -->
+                    <input type="hidden" name="animal_id" value="{{ animal['animal_id'] }}">
+                    <input type="submit" value="Relinquish">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!-- Create header titled ADOPTED. -->
+    <h1>ADOPTED</h1>
+    <!--
+        Create centered table with 80% width.
+        Table has 2 columns and 1 row for each "data3" from app.py.
+        Jinja template.
+        Iterate over "data3" to populate table.
+        Column 1: "image" sourced from "image", max height 300px.
+        Column 2: "animal", "breed", "disposition", "create_date", and "availability".
+        Bold and underline each key. Line break after each key.
+        Disposition: Iterate over "disposition". Line break between disposition.
+    -->
+    <table align="center" width="80%">
+        {% for animal in data3 %}
+        <tr>
+            <td>
+                <img src="{{ animal['image'] }}" alt="image" height="300px">
+            </td>
+            <td>
+                <b><u>Animal</u></b><br>
+                {{ animal['animal'] }}<br><br>
+                <b><u>Breed</u></b><br>
+                {{ animal['breed'] }}<br><br>
+                <b><u>Disposition</u></b><br>
+                {% for disposition in animal['disposition'] %}
+                {{ disposition }}<br>
+                {% endfor %}
+                <br>
+                <!-- Create a button to relinquish animal. -->
+                <form action="/relinquish" method="post">
+                    <!-- Hidden input to pass animal_id. -->
+                    <input type="hidden" name="animal_id" value="{{ animal['animal_id'] }}">
+                    <input type="submit" value="Relinquish">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <footer>
+        <p>&copy; PawPair Team 2023</p>
+    </footer>
+</body>
+</html>

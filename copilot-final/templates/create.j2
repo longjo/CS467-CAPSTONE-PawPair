@@ -1,0 +1,51 @@
+<!--
+    Create DOCTYPE HTML structure.
+    Import CSS from static/style.css.
+    Create a header titled NEW ACCOUNT.
+    Add line breaks between descriptions and forms.
+    Copyright: PawPair Team 2023.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NEW ACCOUNT</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <!--
+        Create a navigation bar routing: HOME (/), LOGIN (/login), and ANIMALS (/animals).
+        Separate links with pipes.
+    -->
+    <nav>
+        <a href="/">HOME</a> |
+        <a href="/login">LOGIN</a> |
+        <a href="/animals">ANIMALS</a>
+    </nav>
+    <h1>NEW ACCOUNT</h1>
+    <!--
+        Create form to add new user.
+        Ask user to input their favorite animal.
+        Line break between queries.
+        Create hidden attribute "pending[]" to store pending adoptions.
+        Create hidden attribute "adopted[]" to store adopted animals.
+    -->
+    <form method="POST">
+        <label for="id">Username:</label>
+        <input type="text" name="id" id="id">
+        <br>
+        <label for="pw">Password:</label>
+        <input type="password" name="pw" id="pw">
+        <br>
+        <label for="fav">Favorite Animal:</label>
+        <input type="text" name="fav" id="fav">
+        <br>
+        <input type="hidden" name="pending[]" value="">
+        <input type="hidden" name="adopted[]" value="">
+        <input type="submit" value="Create Account">
+    </form>
+    <footer>
+        <p>&copy; PawPair Team 2023</p>
+    </footer>
+</body>
+</html>

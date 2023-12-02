@@ -1,0 +1,74 @@
+<!--
+    Create DOCTYPE HTML structure.
+    Import CSS from static/style.css.
+    Create a header titled LOGIN.
+    Copyright: PawPair Team 2023.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <!--
+        Create a navigation bar routing: HOME (/) and ANIMALS (/animals).
+        Separate links with pipes.
+    -->
+    <nav>
+        <a href="/">HOME</a> |
+        <a href="/animals">ANIMALS</a>
+    </nav>
+    <h1>LOGIN</h1>
+    <!--
+        Create a form to accept username and password.
+    -->
+    <form action="/login" method="post">
+        <label for="id">Username:</label>
+        <input type="text" name="id" id="id" required>
+        <br>
+        <label for="pw">Password:</label>
+        <input type="password" name="pw" id="pw" required>
+        <br>
+        <input type="submit" value="LOGIN">
+    </form>
+    <br>
+    <!-- Create a 30% "Create New Account" button using ./static/create.jpg linking to /create. -->
+    <a href="/create"><img src="static/create.jpg" alt="Create New Account" width="30%"></a>
+    <br>
+    <p>~for demonstrative purposes only~</p>
+    <!--
+        Create centered table.
+        Iterate through "data" passed from app.py.
+        Items have "id", "pw", "fav".
+        Create button which routes to /delete/<id>.
+    -->
+    <table align="center">
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Favorite Animal</th>
+            <th>Delete</th>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item["id"] }}</td>
+            <td>{{ item["pw"] }}</td>
+            <td>{{ item["fav"] }}</td>
+            <td>
+            <!-- If "id" is not "admin" or "user", create a delete button. -->
+            {% if item["id"] != "admin" and item["id"] != "user" %}
+                <form action="/delete/{{ item['id'] }}" method="post">
+                    <input type="submit" value="Delete">
+                </form>
+            {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>
+        &copy; PawPair Team 2023
+    </p>
+</body>
+</html>

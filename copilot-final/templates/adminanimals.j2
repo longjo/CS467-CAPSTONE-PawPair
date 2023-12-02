@@ -1,0 +1,222 @@
+<!--
+    Create DOCTYPE HTML structure.
+    Import CSS from static/style.css.
+    Create a header titled ANIMALS.
+    Add line breaks between descriptions.
+    Copyright: PawPair Team 2023.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ANIMALS</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <!--
+        Create a navigation bar routing: HOME (/) and LOGOUT (/logout).
+        Separate links with pipes.
+    -->
+    <nav>
+        <a href="/">HOME</a> |
+        <a href="/logout">LOGOUT</a>
+    </nav>
+    <h1>ANIMALS</h1>
+    <!-- Create a header titled "ADD NEW ANIMAL" -->
+    <h2>ADD NEW ANIMAL</h2>
+    <!--
+        Create a form for a new animal inside a table.
+        The form asks for "image", "animal", "breed", "disposition", "create_date", and "availability" in bold.
+        Image: Text input with placeholder "image url".
+        Animal: Buttons with "Cat", "Dog", and "Other". No line break.
+        Breed: Dropdown menu with "British Shorthair", "Persian", "Siamese", "French Bulldog", "German Shepherd",  "Golden Retriever", "Labrador Retriever", "Other".
+        Disposition: Select one or more of "Good with Other Animals", "Good with Children", "Animal Must Be Leashed at All Times" with checkbox. Line break between options.
+        Date: Date input.
+        Availability: Dropdown with "Available", "Not Available", "Pending", and "Adopted".
+        Create a button to "ADD" outside the table.
+    -->
+    <form action="/animals" method="post">
+        <table align="center">
+            <tr>
+                <td><b>Image</b></td>
+                <td><input type="text" name="image" placeholder="image url"></td>
+            </tr>
+            <tr>
+                <td><b>Animal</b></td>
+                <td>
+                    <input type="radio" name="animal" value="Cat">Cat
+                    <input type="radio" name="animal" value="Dog">Dog
+                    <input type="radio" name="animal" value="Other">Other
+                </td>
+            </tr>
+            <tr>
+                <td><b>Breed</b></td>
+                <td>
+                    <select name="breed">
+                        <option value="British Shorthair">British Shorthair</option>
+                        <option value="Persian">Persian</option>
+                        <option value="Siamese">Siamese</option>
+                        <option value="French Bulldog">French Bulldog</option>
+                        <option value="German Shepherd">German Shepherd</option>
+                        <option value="Golden Retriever">Golden Retriever</option>
+                        <option value="Labrador Retriever">Labrador Retriever</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Disposition</b></td>
+                <td>
+                    <input type="checkbox" name="disposition[]" value="Good with Other Animals">Good with Other Animals<br>
+                    <input type="checkbox" name="disposition[]" value="Good with Children">Good with Children<br>
+                    <input type="checkbox" name="disposition[]" value="Animal Must Be Leashed at All Times">Animal Must Be Leashed at All Times<br>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Date</b></td>
+                <td><input type="date" name="create_date"></td>
+            </tr>
+            <tr>
+                <td><b>Availability</b></td>
+                <td>
+                    <select name="availability">
+                        <option value="Available">Available</option>
+                        <option value="Not Available">Not Available</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Adopted">Adopted</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <!-- Set "animal_id" to "animal_id" from app.py. -->
+        <input type="hidden" name="animal_id" value="{{ animal_id }}">
+        <input type="submit" name="add" value="ADD">
+    </form>
+    <!--
+        Create a form inside a table with 4 rows and 1 column.
+        The form is named "search" and asks for "animal", "breed", "disposition", and "availability" in bold.
+        Animal: Buttons with "Cat", "Dog", and "Other". No line break.
+        Breed: Dropdown menu with "British Shorthair", "Persian", "Siamese", "French Bulldog", "German Shepherd",  "Golden Retriever", "Labrador Retriever", "Other".
+        Disposition: Select one or more of "Good with Other Animals", "Good with Children", "Animal Must Be Leashed at All Times" with checkbox. Line break between options.
+        Availability: Dropdown with "Available", "Not Available", "Pending", and "Adopted".
+        Create a button to "SEARCH" outside the table.
+        The form redirects to "/animals" with POST method.
+    -->
+    <form action="/animals" method="POST">
+        <!-- Create a header titled "SEARCH" -->
+        <h2>SEARCH</h2>
+        <table align="center">
+            <tr>
+                <td>
+                    <b>Animal</b><br>
+                    <input type="radio" name="animal" value="Cat">Cat
+                    <input type="radio" name="animal" value="Dog">Dog
+                    <input type="radio" name="animal" value="Other">Other
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Breed</b><br>
+                    <select name="breed">
+                        <!-- Include option for "No Preference" -->
+                        <option value="No Preference">No Preference</option>
+                        <option value="British Shorthair">British Shorthair</option>
+                        <option value="Persian">Persian</option>
+                        <option value="Siamese">Siamese</option>
+                        <option value="French Bulldog">French Bulldog</option>
+                        <option value="German Shepherd">German Shepherd</option>
+                        <option value="Golden Retriever">Golden Retriever</option>
+                        <option value="Labrador Retriever">Labrador Retriever</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Disposition</b><br>
+                    <input type="checkbox" name="disposition[]" value="Good with Other Animals">Good with Other Animals<br>
+                    <input type="checkbox" name="disposition[]" value="Good with Children">Good with Children<br>
+                    <input type="checkbox" name="disposition[]" value="Animal Must Be Leashed at All Times">Animal Must Be Leashed at All Times
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Availability</b><br>
+                    <select name="availability">
+                        <!-- Include option for "No Preference" -->
+                        <option value="No Preference">No Preference</option>
+                        <option value="Available">Available</option>
+                        <option value="Not Available">Not Available</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Adopted">Adopted</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" name="search" value="SEARCH">
+    </form>
+    <!-- If "flag" does not exist, create a button to "SHOW ALL" -->
+    {% if flag is not defined %}
+    <form action="/animals" method="POST">
+        <input type="submit" name="show_all" value="SHOW ALL">
+    </form>
+    {% endif %}
+    <!-- Create a header titled "RESULTS" -->
+    <h2>RESULTS</h2>
+    <!--
+        Create centered table with 80% width.
+        Table has 2 columns and 1 row for each "data" from app.py.
+        Jinja template.
+        Iterate over "data" to populate table.
+        Column 1: "image" sourced from "image", max height 300px.
+        Column 2: "id", "animal", "breed", "disposition", "create_date", and "availability".
+        Bold and underline each key. Line break after each key.
+        Disposition: Iterate over "disposition". Line break between dispositions.
+    -->
+    <table align="center" width="80%">
+        {% for animal in data %}
+        <tr>
+            <td>
+                <img src="{{ animal['image'] }}" alt="image" height="300px">
+            </td>
+            <td>
+                <b><u>ID</u></b><br>
+                {{ animal['animal_id'] }}<br><br>
+                <b><u>Animal</u></b><br>
+                {{ animal['animal'] }}<br><br>
+                <b><u>Breed</u></b><br>
+                {{ animal['breed'] }}<br><br>
+                <b><u>Disposition</u></b><br>
+                {% for disposition in animal['disposition'] %}
+                {{ disposition }}<br>
+                {% endfor %}
+                <br>
+                <b><u>Date</u></b><br>
+                {{ animal['create_date'] }}<br><br>
+                <b><u>Availability</u></b><br>
+                {{ animal['availability'] }}
+                <br><br>
+                <!--
+                    Button named "edit" to edit animal.
+                    Route to /edit.
+                -->
+                <form action="/edit" method="post">
+                    <input type="hidden" name="animal_id" value="{{ animal['animal_id'] }}">
+                    <input type="submit" name="edit" value="Edit Animal">
+                </form>
+                <!--
+                    Button named "delete" to delete animal with confirmation.
+                    Route to animals/<animal_id>.
+                -->
+                <form action="/animals/{{ animal['animal_id'] }}" method="post">
+                    <input type="submit" name="delete" value="Delete Animal" onclick="return confirm('Are you sure you want to delete this animal?')">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <footer>
+        <p>&copy; PawPair Team 2023</p>
+    </footer>
+</body>
+</html>
