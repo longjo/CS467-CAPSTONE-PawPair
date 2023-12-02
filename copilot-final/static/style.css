@@ -1,0 +1,157 @@
+/* Background Color: Light Brown */
+body {
+    background-color: #F5F5DC;
+}
+
+/* Header 1: Centered, Bold, Black, Verdana */
+h1 {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    font-family: Verdana;
+}
+
+/* Header 2: Centered, Bold, Dark Green, Verdana */
+h2 {
+    text-align: center;
+    font-weight: bold;
+    color: #006400;
+    font-family: Verdana;
+}
+
+/* Navigation: Black, Centered, Verdana, Top Border, Bottom Border */
+nav {
+    background-color: black;
+    text-align: center;
+    font-family: Verdana;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
+/* Navigation Links: Bold, White, Verdana, No Decoration */
+nav a {
+    font-weight: bold;
+    color: white;
+    font-family: Verdana;
+    text-decoration: none;
+}
+
+/* Navigation Links Hover: Light Green */
+nav a:hover {
+    color: #90EE90;
+}
+
+/* Body: Centered, Verdana, Thick Black Bordered, 50% */
+body {
+    text-align: center;
+    font-family: Verdana;
+    border: 5px solid black;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* th/td: Padded Cells, Thin Black Bordered */
+th, td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+/* .center: Auto Margins */
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Input Type: Select */
+select {
+    width: 100%;
+    padding: 5px;
+    display: inline-block;
+    border: 1px solid black;
+    background: #f1f1f1;
+    /* Verdana, Centered */
+    font-family: Verdana;
+    text-align: center;
+}
+
+/* Input Type: Submit, Black Background, Width: Fit */
+input[type=submit] {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    /* Verdana, Bold */
+    font-family: Verdana;
+    font-weight: bold;
+    /* Hover: Light Green Text */
+    &:hover {
+        color: #90EE90;
+    }
+}
+
+/* Input Type: Text, Black Background, Width: Fit */
+input[type=text] {
+    width: fit-content;
+    padding: 5px;
+    display: inline-block;
+    border: 1px solid black;
+    background: #f1f1f1;
+    /* Verdana, Centered */
+    font-family: Verdana;
+    text-align: center;
+    /* Margin: 1px */
+    margin: 1px;
+}
+
+/* Input Type: Password, Black Background, Width: Fit */
+input[type=password] {
+    width: fit-content;
+    padding: 5px;
+    display: inline-block;
+    border: 1px solid black;
+    background: #f1f1f1;
+    /* Verdana, Centered */
+    font-family: Verdana;
+    text-align: center;
+    /* Margin: 1px */
+    margin: 1px;
+}
+
+/* Input Type: Date, Width: Fit */
+input[type=date] {
+    width: fit-content;
+    padding: 5px;
+    display: inline-block;
+    border: 1px solid black;
+    background: #f1f1f1;
+    /* Verdana, Centered */
+    font-family: Verdana;
+    text-align: center;
+}
+
+/* Link */
+a {
+    color: black;
+    /* Hover: Bold, Dark Blue */
+    &:hover {
+        font-weight: bold;
+        color: #00008B;
+    }
+}
+
+/* HTML: static/bg.jpg */
+html {
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Header: Image Width 50% */
+header img {
+    width: 50%;
+}
