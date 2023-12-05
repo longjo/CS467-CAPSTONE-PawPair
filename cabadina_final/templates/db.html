@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Table</title>
+</head>
+<body>
+
+<button type="button" onclick="window.location.href = '/'"
+        style="font-size: 20px; margin-bottom: 20px;">
+        <- Home
+      </button>
+
+<div style="display:flex;">
+
+<!-- Users Table -->
+<table border="1" style="height: 0px; margin-right: 20px;">
+  <thead style="background-color: #008080; color: white;">
+    <tr>
+      <th>User ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #E0FFFF;">
+    {% for user in users %}
+      <tr>
+        <td>{{ user[0] }}</td>
+        <td>{{ user[1] }} {{ user[2] }}</td>
+        <td>{{ user[3] }}</td>
+        <td>{{ user[4] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- Shelters Table -->
+<table border="1" style="height: 0px; margin-right: 20px;">
+  <thead style="background-color: #673AB7; color: white;">
+    <tr>
+      <th>Shelter ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Zip</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #E1BEE7;">
+    {% for shelter in shelters %}
+      <tr>
+        <td>{{ shelter[0] }}</td>
+        <td>{{ shelter[1] }}</td>
+        <td>{{ shelter[2] }}</td>
+        <td>{{ shelter[3] }}</td>
+        <td>{{ shelter[4] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<div style="display:flex; margin-top: 20px;">
+
+<!-- Animals Table -->
+<table border="1" style="height: 0px;">
+  <thead style="background-color: #F4511E; color: white;">
+    <tr>
+      <th>Animal ID</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Breed</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Image URL</th>
+      <th>Description</th>
+      <th>News Item</th>
+      <th>Shelter ID</th>
+      <th>Availability</th>
+      <th>Reserved By</th>
+      <th>Date Created</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #FFD8B1;">
+    {% for animal in animals %}
+      <tr>
+        <td>{{ animal[0] }}</td>
+        <td>{{ animal[1] }}</td>
+        <td>{{ animal[2] }}</td>
+        <td>{{ animal[3] }}</td>
+        <td>{{ animal[4] }}</td>
+        <td>{{ animal[5] }}</td>
+
+        <!-- Account for nullable url -->
+        {% if animal[6] == None %}
+          <td>{{ animal[6] }}</td>
+        {% else %}
+          <td>{{ animal[6][:15] }}...</td>
+        {% endif %}
+
+        <td>{{ animal[7][:15] }}...</td>
+        <td>{{ animal[8] }}</td>
+        <td>{{ animal[9] }}</td>
+        <td>{{ animal[10] }}</td>
+        <td>{{ animal[11] }}</td>
+        <td>{{ animal[12] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</div>
+
+
+<div style="display:flex; margin-top: 20px;">
+
+<!-- Animal_Breeds Table -->
+<table border="1" style="height: 0px; margin-right: 20px;">
+  <thead style="background-color: #b72f2f; color: white;">
+    <tr>
+      <th>Breed ID</th>
+      <th>Name</th>
+      <th>Type ID</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #FFE0E0;">
+    {% for animal_breed in animal_breeds %}
+      <tr>
+        <td>{{ animal_breed[0] }}</td>
+        <td>{{ animal_breed[1] }}</td>
+        <td>{{ animal_breed[2] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- Animal_Types Table -->
+<table border="1" style="height: 0px; margin-right: 20px;">
+  <thead style="background-color: #FFC107; color: white;">
+    <tr>
+      <th>Type ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #FFF9C4;">
+    {% for animal_type in animal_types %}
+      <tr>
+        <td>{{ animal_type[0] }}</td>
+        <td>{{ animal_type[1] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- Dispositions Table -->
+<table border="1" style="height: 0px; margin-right: 20px;">
+  <thead style="background-color: #2196F3; color: white;">
+    <tr>
+      <th>Disposition ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #E1F5FE;">
+    {% for disposition in dispositions %}
+      <tr>
+        <td>{{ disposition[0] }}</td>
+        <td>{{ disposition[1] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- Animal_Dispositions Table -->
+<table border="1" style="height: 0px; margin-right: 20px;">
+  <thead style="background-color: #4CAF50; color: white;">
+    <tr>
+      <th>Animal ID</th>
+      <th>Disposition ID</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #E8F5E9;">
+    {% for animal_disposition in animal_dispositions %}
+      <tr>
+        <td>{{ animal_disposition[0] }}</td>
+        <td>{{ animal_disposition[1] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+</body>
+</html>

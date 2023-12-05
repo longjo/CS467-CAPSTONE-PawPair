@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Animal Details{% endblock %}
+
+{% set container = "centered" %}
+
+{% block content %}
+
+<div class="animal-details-container">
+
+  <div class="animal-details-left">
+
+    {% if animal[6] %}
+    <img src="{{ animal[6] }}" width="300" height="300">
+    {% else %}
+    <img src="/static/images/default_animal_image_300.png" width="300" height="300">
+    {% endif %}
+
+    <h3>Status: {{ animal[10] }}</h3>
+
+    {% if animal[11] == session['user_id'] %}
+    <form action="/animal_details/{{ animal[0] }}" method="POST">
+      <input type="hidden" name="action" value="cancel">
+      <button type="submit" class="cta-delete-button">Cancel Meeting</button>
+    </form>
+    
+    {% else %}
+    {% if animal[10] != "Available" %}
+      Sorry, but {{animal[1]}} is not yet available.
+    
+      {% else %}
+      {% if not logged_in %}
+        <div>Please <a href="/login" class="small-button">LOG IN</a> to request a meeting.</div>
+    
+        {% else %}
+        {% if not as_user %}
+          <div>Would you like to meet {{animal[1]}}?</div>
+          <div>Please sign into a <b>user</b> account.</div>
+      
+          {% else %}
+          <form action="/animal_details/{{ animal[0] }}" method="POST">
+            <input type="hidden" name="action" value="reserve">
+            <button type="submit" class="cta-button">Let's Meet!</button>
+          </form>
+      
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+  </div>
+
+  <div class="animal-details-right">
+    <h1>{{ animal[1] }}</h1>
+    
+    <table class="animal-details-table">
+      <tr>
+        <td><b>Type</b></td>
+        <td>{{ animal[2] }}</td>
+      </tr>
+      <tr>
+        <td><b>Breed</b></td>
+        <td>{{ animal[3] }}</td>
+      </tr>
+      <tr>
+        <td><b>Age</b></td>
+        <td>{{ animal[4] }}</td>
+      </tr>
+      <tr>
+        <td><b>Gender</b></td>
+        <td>{{ animal[5] }}</td>
+      </tr>
+      <tr>
+        <td><b>Location</b></td>
+        <td>{{ animal[9] }}</td>
+      </tr>
+    </table>
+    <hr>
+
+    <h3>About Me</h3>
+
+    {{ animal[7] }}
+  
+    {% if animal_dispositions|length > 0 %}
+      <h3>Disposition</h3>
+      <ul>
+        {% for disposition in animal_dispositions %}
+          <li>{{ disposition }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+  </div>   
+
+</div>
+
+{% endblock %}

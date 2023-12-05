@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Login{% endblock %}
+
+{% set container = "centered" %}
+
+{% block content %}
+
+      <div class="account-creation-form">
+        
+        <h2>Welcome back!</h2>
+
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+
+        <form action="/login" method="POST">          
+      
+          <input type="email" name="email" placeholder="Email" required>
+      
+          <br>
+      
+          <input type="password" name="password" placeholder="Password" required>
+      
+          <br>
+      
+          <input type="submit" class="cta-button" value="Log In">
+        </form>
+        <p>Need to create a new account?</p>
+        <p>Sign up as a <a href="/user_signup">User</a> or a <a href="/shelter_signup">Shelter</a></p>
+      </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Edit Name{% endblock %}
+
+{% set container = "centered" %}
+
+{% block content %}
+
+      <div class="account-creation-form">
+                  
+        <form action="/edit_shelter_name" method="POST">
+          <input type="text" name="shelter_name" value="{{ shelter_name }}" placeholder="Shelter name" required>
+          <input type="submit" class="cta-button" value="Update Name">
+        </form>
+      </div>
+
+{% endblock %}

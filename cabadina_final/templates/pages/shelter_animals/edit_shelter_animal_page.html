@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %}PawPair | Edit Animal{% endblock %}
+
+{% set container = "centered" %}
+
+{% block content %}
+
+      <div class="account-creation-form">
+        <h2>Edit Animal Details</h2>
+      
+        <form action="/edit_shelter_animal/{{ animal[0] }}" method="POST">
+
+          <input type="text" name="animal_name" value="{{ animal[1] }}" placeholder="Name" required>
+          <br>
+          
+          <select class="dropdown-basic" name="animal_type" required>
+            <option value="" disabled>Select Animal Type</option>
+            {% for type in animal_types %}
+            <!-- Make default selection if current animal value -->
+            <option value="{{ type[0] }}"{% if type[0] == animal[2] %}selected{% endif %}>
+              {{ type[1] }}
+            </option>
+            {% endfor %}
+          </select>
+
+          <select class="dropdown-basic" name="animal_breed" required>
+            <option value="" disabled>Select Breed</option>
+            {% for breed in animal_breeds %}
+              {% if breed[2] == animal[2] %}
+                <option value="{{ breed[0] }}" {% if breed[0] == animal[3] %}selected{% endif %}>{{ breed[1] }}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+
+          <select class="dropdown-basic" name="age" required> 
+            <option value="" disabled>Select Age</option>
+            {% for age in ['Newborn', 'Young', 'Adult', 'Senior'] %}
+            <option value="{{ age }}" {% if age == animal[4] %}selected{% endif %}>{{ age }}</option>
+            {% endfor %}
+          </select>
+
+          <select class="dropdown-basic" name="gender" required> 
+            <option value="" disabled>Select Gender</option>
+            {% for gender in ['Male', 'Female', 'Unknown'] %}
+            <option value="{{ gender }}" {% if gender == animal[5] %}selected{% endif %}>{{ gender }}</option>
+            {% endfor %}
+          </select>
+
+          <br />
+          <fieldset class="fieldset-basic">
+            <legend><b>Dispositions:</b> select all that apply</legend>
+            {% for disposition in dispositions %}
+              <input type="checkbox" name="dispositions" value="{{ disposition[0] }}" {% if disposition[0] in animal_dispositions %}checked{% endif %}>
+              <label>{{ disposition[1] }}</label>
+
+              <!-- inserts line break every 2 checkboxes -->
+              {% if loop.index is divisibleby 2 %}
+                <br />
+              {% endif %}
+
+            {% endfor %}
+          </fieldset>
+
+          <input type="text" name="image_url" {% if animal[6] %}value="{{ animal[6] }}"{% endif %} placeholder="Image URL (optional)">
+          <br>
+
+          <input type="text" name="description" value="{{ animal[7] }}" placeholder="Description" required>
+          <br>
+
+          <input type="text" name="news_item" {% if animal[8] %}value="{{ animal[8] }}"{% endif %} placeholder="News Item (optional)">
+          <br>
+
+          <select class="dropdown-basic" name="availability" required> 
+            <option value="" disabled selected>Select Availability</option>
+            {% for availability in ['Available', 'Not Available', 'Pending', 'Adopted'] %}
+              <option value="{{ availability }}" {% if availability == animal[10] %}selected{% endif %}>{{ availability }}</option>
+            {% endfor %}
+          </select>
+
+          <input type="submit" class="cta-button" value="Update Animal">
+        </form>
+      </div>
+
+      <!-- Reloads breed and age options based on type selection -->
+      <script>
+        const animal_type_select = document.querySelector('select[name="animal_type"]');
+        const breed_select = document.querySelector('select[name="animal_breed"]');
+        const age_select = document.querySelector('select[name="age"]');
+
+        // Listen for user's animal type selection
+        animal_type_select.addEventListener('change', (event) => {
+            const selected_type = event.target.value;
+
+            // Clear the breed and age options
+            breed_select.innerHTML = '<option value="" disabled selected>Select Breed</option>';
+            age_select.innerHTML = '<option value="" disabled selected>Select Age</option>';
+
+            // Filter the animal breeds based on the selected animal type
+            const animal_breeds = JSON.parse('{{ animal_breeds | tojson | safe }}');
+            const filtered_breeds = animal_breeds.filter(breed => breed[2].toString() === selected_type);
+
+            // Add the filtered breeds to the breed select
+            filtered_breeds.forEach(breed => {
+                const option = document.createElement('option');
+                option.value = breed[0];
+                option.text = breed[1];
+                breed_select.add(option);
+            });
+
+            // Add the type-specific age to the age select
+            function add_age_option(age) {
+              const option = document.createElement('option');
+              option.value = age;
+              option.text = age;
+              age_select.add(option)
+            }
+            if (selected_type === '1') {
+              add_age_option("Puppy");
+            } else if (selected_type === '2') {
+              add_age_option("Kitten");
+            } else {
+              add_age_option("Newborn");
+            }
+            add_age_option("Young");
+            add_age_option("Adult");
+            add_age_option("Senior");                
+        });
+      </script>
+
+{% endblock %}
